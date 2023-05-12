@@ -14,6 +14,7 @@ char *_getinput(void)
 
 	if ((getline(&buff, &n, stdin) == -1))
 	{
+		free(buff);
 		exit(0);
 	}
 	return (buff);
