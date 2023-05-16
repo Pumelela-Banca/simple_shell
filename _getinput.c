@@ -1,21 +1,48 @@
 # include "main.h"
-# include <stdlib.h>
-# include <stdio.h>
 /**
- * _getinput - function to get input from STDIN
- * Return: pointer to the string buffer
+ * getpath - function
+ * @cmd: cmd
+ * @envp: envp
+ * Return: buff
  */
-char *_getinput(void)
+char *getpath(char *cmd, char *envp[])
 {
-	char *buff;
-	size_t n = 1024;
 
-	buff = malloc(n * sizeof(char));
+	char *buff = NULL, *token = NULL;
+	char *path = _getenv("PATH");
 
-	if ((getline(&buff, &n, stdin) == -1))
+	(void)envp;
+	if (access(cmd, X_OK) == 0)
+		return (cmd);
+	buff = malloc((_strlen("/usr") + _strlen(cmd) + 2) * sizeof(char));
+	if (buff == NULL)
 	{
-		free(buff);
-		exit(0);
+		perror("Error: can't allocate buffer space");
+		exit(1);
 	}
-	return (buff);
+	_strcpy(buff, "/usr");
+	if (cmd[0] != '/')
+		_strcat(buff, "/");
+	_strcat(buff, cmd);
+	if (access(buff, X_OK) == 0)
+		return (buff);
+	free(buff);
+	token = strtok(path, ":");
+	do {
+		buff = malloc((_strlen(token) + _strlen(cmd) + 2) * sizeof(char));
+		if (buff == NULL)
+		{
+			perror("Error: can't allocate buffer space");
+			exit(1);
+		}
+		_strcpy(buff, token);
+		_strcat(buff, "/");
+		_strcat(buff, cmd);
+		if (access(buff, X_OK) == 0)
+			return (buff);
+		token = strtok(NULL, ":");
+	} while (token != NULL);
+	perror("Error");
+	return (NULL);
 }
+
