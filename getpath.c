@@ -8,7 +8,7 @@
  *
  * Return: path of command
  */
-
+/*
 char *getpath(char *cmd, char *envp[])
 {
 	char *buff = NULL, *token = NULL;
@@ -48,6 +48,7 @@ char *getpath(char *cmd, char *envp[])
 			token = strtok(NULL, ":");
 		}
 	} while (token != NULL);
-	perror("Error"); /*Print error message*/
+	perror("Error"); //Print error message
 	return (NULL);
 }
+*/

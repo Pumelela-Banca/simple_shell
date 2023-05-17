@@ -35,7 +35,9 @@ char *_strcpy(char *dst, const char *src);
 size_t _strlen(const char *s);
 char *_strdup(const char *s1);
 void _which(char *envp[], char *cmds[]);
-
+void execfile(char *cmds[], char *envp[]);
+void _free(char *cmds[]);
+char *_shellprint(void);
 
 /**
  * struct environvar - linked list of enviroment variables
