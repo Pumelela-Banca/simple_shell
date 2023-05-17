@@ -16,6 +16,6 @@ void print_error(cals_t *env_info, char *err_msg)
 	printstr(": ");
 	printstr(env_info->sh_arg);
 	printstr(": ");
-	printstr(err_msg);
+	printstir(err_msg);
 	printstr("\n");
 }

@@ -1,4 +1,4 @@
-
+#include "main.h"
 /**
  * _strdup - string duplicate
  * @s1: input string

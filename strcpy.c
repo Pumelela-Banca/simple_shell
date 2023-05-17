@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * _strcpy - function that copies string charcters into another string
  * @dst: pointer to the destination string
