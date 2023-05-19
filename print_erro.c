@@ -6,7 +6,7 @@
  * @num_cy: argument number
  * @argv: arguments
  * @cmds: local arguments
- * 
+ *
  * Return: void
  */
 

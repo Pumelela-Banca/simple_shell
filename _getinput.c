@@ -11,7 +11,7 @@ char *getpath(char *cmd, char *envp[])
 	char *path = NULL;
 
 	if (access(cmd, X_OK) == 0)
-		return(cmd);
+		return (cmd);
 	path = _getenv("PATH");
 
 	token = strtok(path, ":");

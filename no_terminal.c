@@ -39,7 +39,7 @@ void no_terminal(char **argv, char **envp)
 		_cd(envp, argv, cmds);
 	else if (_strcmp(cmds[0], "which") == 0)
 	{
-		if(_which(envp, cmds) == 1)
+		if (_which(envp, cmds) == 1)
 			exit(1);
 	}
 	else if (_strcmp(cmds[0], "env") == 0)
