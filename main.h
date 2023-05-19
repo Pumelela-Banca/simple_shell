@@ -47,7 +47,7 @@ int _strcmp(const char *str1, const char *str2);
 char *_strcpy(char *dst, const char *src);
 size_t _strlen(const char *s);
 char *_strdup(const char *s1);
-void _which(char *envp[], char *cmds[]);
+int _which(char *envp[], char *cmds[]);
 void execfile(char *cmds[], char *envp[]);
 char *_shellprint(void);
 char *checkdir(char *name, char *file);
