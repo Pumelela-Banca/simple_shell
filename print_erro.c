@@ -10,7 +10,7 @@
  * Return: void
  */
 
-void print_error(int num_cy, char *argv[], char *cmds[])
+void print_error(int *num_cy, char *argv[], char *cmds[])
 {
 	printstr(argv[0]);
 	printstr(": ");
