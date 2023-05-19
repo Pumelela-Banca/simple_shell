@@ -17,13 +17,14 @@ char *readfile(char *filepath)
 	if (buff == NULL)
 	{
 		perror("can't allocate memory");
-		return NULL;
+		return (NULL);
 	}
-	if ((fd = open(filepath, O_RDONLY)) == -1)
+	fd = open(filepath, O_RDONLY);
+	if (fd == -1)
 	{
 		perror("Error opening file");
 		free(buff);
-		return NULL;
+		return (NULL);
 	}
 	j = read(fd, buff, 1023);
 	if (j == -1)
@@ -31,12 +32,12 @@ char *readfile(char *filepath)
 		perror("Error reading file");
 		close(fd);
 		free(buff);
-		return NULL;
+		return (NULL);
 	}
 	buff[j] = '\0';
 	while (buff[i] != '\0')
 	{
-		if(buff[i] == '\n')
+		if (buff[i] == '\n')
 		{
 			buff[i] = '\0';
 			break;

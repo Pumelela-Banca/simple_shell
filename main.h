@@ -27,7 +27,6 @@ void _cd(char *envp[], char *cmds[]);
 void _clear(char *envp[], char *cmds[]);
 void _env(char *envp[], char *cmds[]);
 void _exit_(char *envp[], char *cmds[]); /*might need to include*/
-void file_exec(char *envp[], char *cmds[]);
 int print_num(int n);
 int printstr(char *s);
 char *_strcat(char *restrict s1, const char *restrict s2);
@@ -44,6 +43,7 @@ void no_terminal(char **argv, char **envp);
 void terminal(char *argv[], char *envp[]);
 char *get_input(void);
 char *readfile(char *filepath);
+int file_exec(char *envp[], char *cmds[], char *argv[], int *count);
 
 /**
  * struct environvar - linked list of enviroment variables

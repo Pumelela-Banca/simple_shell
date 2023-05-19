@@ -3,14 +3,13 @@
 /**
  * envtokenise - separates enviromental variables
  *
- * Returns: list of directories
+ * Return: list of directories
  */
 
 char **envtokenise(void)
 {
-
         char **new = NULL;
-        int j = 0, k = 0;
+	int j = 0, k = 0;
 
 	while (environ[j] != NULL)
 	{
@@ -18,7 +17,7 @@ char **envtokenise(void)
 	}
 	j++;
 	new = malloc(j * sizeof(char *));
-	if(new == NULL)
+	if (new == NULL)
 	{
 		perror("Error");
 		return (NULL);
@@ -34,7 +33,7 @@ char **envtokenise(void)
 				free(new[k]);
 			}
 			free(new);
-			return NULL;
+			return (NULL);
 		}
 		j++;
 	}

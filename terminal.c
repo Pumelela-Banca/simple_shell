@@ -8,15 +8,13 @@
  *
  * Return: void
  */
-
 void terminal(char *argv[], char *envp[])
 {
-	int j = 0, count = 0;
+	int j = 0, count = 0, *ptr = &count;
 	char **cmds = NULL;
-	char *buff = NULL, *real = NULL, *tmp;
+	char *buff = NULL;
 
-	do
-	{
+	do {
 		buff = _shellprint();
 		cmds = tokenise(buff);
 		count++;
@@ -29,7 +27,7 @@ void terminal(char *argv[], char *envp[])
 		}
 		else if (_strcmp(cmds[0], "cd") == 0)
 		{
-			_cd(envp, cmds);
+			_cd(envp, argv, cmds);
 			continue;
 		}
 		else if (_strcmp(cmds[0], "which") == 0)
@@ -42,24 +40,15 @@ void terminal(char *argv[], char *envp[])
 			_env(envp, cmds);
 			continue;
 		}
-		else if ((_strcmp(cmds[0], "echo") == 0) && (cmds[1][0] == '$'))
+		else if ((_strcmp(cmds[0], "echo") == 0) &&
+				(cmds[1][0] == '$'))
 		{
 			_env_var_print(envp, cmds);
 			continue;
 		}
 		else
 		{
-			real = getpath(cmds[0], envp);
-			if (real == NULL)
-			{
-				print_error(count, argv, cmds);
-				_free(cmds);
-				continue;
-			}
-			tmp = cmds[0];
-			cmds[0] = _strdup(real);
-			free(tmp);
-			file_exec(envp, cmds);
+			file_exec(envp, cmds, argv, ptr);
 			continue;
 		}
 		j++;

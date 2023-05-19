@@ -15,9 +15,7 @@ void lookinpath(char *envp[])
 
 	buff = _getenv("PATH");
 	token = strtok(buff, ":");
-
-	do 
-	{
+	do {
 		printstr(token);
 		_putchar('\n');
 		token = strtok(NULL, ":");

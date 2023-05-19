@@ -1,7 +1,6 @@
 #include "main.h"
 
 /**
- *
  * free_list - frees sruct with enviromental vvariables
  *
  * @head: first node pointer

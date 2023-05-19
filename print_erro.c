@@ -3,8 +3,10 @@
 /**
  * print_error - prints custom error message
  *
- * @err_msg: error message
- *
+ * @num_cy: argument number
+ * @argv: arguments
+ * @cmds: local arguments
+ * 
  * Return: void
  */
 
