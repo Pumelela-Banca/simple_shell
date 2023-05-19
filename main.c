@@ -15,7 +15,7 @@ int main(int argc, char *argv[], char *envp[])
 
 	(void)argc;
 
-	if (isatty(STDIN_FILENO) == 0)
+	if (argc == 2|| isatty(STDIN_FILENO) == 0)
 		no_terminal(argv, envp);
 	else
 		terminal(argv, envp);
