@@ -35,17 +35,16 @@ char *_strdup(const char *s1);
 void _free(char *cmds[]);
 int _strcmp(const char *str1, const char *str2);
 char *_strdup(const char *s1);
-char *_strcat(char *restricts1, const char *restricts2);
+char *_strcat(char *restrict s1, const char *restrict s2);
 char *_strcpy(char * dst, const char * src);
 void print_error(int num_cy, char *argv[], char *cmds[]);
 void _env_var_print(char *envp[], char *cmds[]);
-void _cd(char *envp[], char *cmds[])
+void _cd(char *envp[], char *cmds[]);
 void _clear(char *envp[], char *cmds[]);
 void _env(char *envp[], char *cmds[]);
 void _exit_(char *envp[], char *cmds[]); /*might need to include*/
 int print_num(int n);
 int printstr(char *s);
-char *_strcat(char *restrict s1, const char *restrict s2);
 int _strcmp(const char *str1, const char *str2);
 char *_strcpy(char *dst, const char *src);
 size_t _strlen(const char *s);
