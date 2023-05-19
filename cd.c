@@ -4,7 +4,7 @@
  *  @envp: *envp[]
  *  @cmds: *cmds[][]
  */
-void _cd(char *envp[], char *cmds[])
+void _cd(char *envp[], char *argv[], char *cmds[])
 {
 	(void)envp;
 	if (chdir(cmds[1]) != 0)
