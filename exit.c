@@ -5,7 +5,7 @@
  */
 void _exit_(char *envp[], char *cmds[])
 {
-	(void)enp;
+	(void)envp;
 
 	_free(cmds);
 	exit(0);

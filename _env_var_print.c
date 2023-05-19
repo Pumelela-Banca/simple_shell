@@ -12,6 +12,7 @@ void _env_var_print(char *envp[], char *cmds[])
 
 	envvar = cmds[1];
 	envvar++;
-	printf("%s\n", _getenv(envvar));
+	printstr(_getenv(envvar));
+	_putchar('\n');
 	_free(cmds);
 }

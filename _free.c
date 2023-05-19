@@ -12,6 +12,9 @@ void _free(char *cmds[])
 {
 	int i = 0;
 
+	if (cmds == NULL)
+		return;
+
 	while (cmds[i] != NULL)
 	{
 		free(cmds[i]);
