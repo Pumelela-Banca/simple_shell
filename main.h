@@ -1,14 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <fcntl.h>
-#include <string.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <errno.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <fcntl.h>
+# include <string.h>
+# include <dirent.h>
 
 extern char **environ;
 
@@ -20,7 +21,7 @@ int _strcmp(const char *str1, const char *str2);
 char *_strdup(const char *s1);
 char *_strcat(char *restrict s1, const char *restrict s2);
 char *_strcpy(char * dst, const char * src);
-void print_error(cals_t *env_info, char *err_msg);
+void print_error(int num_cy, char *argv[], char *cmds[]);
 void _env_var_print(char *envp[], char *cmds[]);
 void _cd(char *envp[], char *cmds[]);
 void _clear(char *envp[], char *cmds[]);
@@ -38,6 +39,10 @@ void _which(char *envp[], char *cmds[]);
 void execfile(char *cmds[], char *envp[]);
 void _free(char *cmds[]);
 char *_shellprint(void);
+char *checkdir(char *name, char *file);
+void no_terminal(char **argv, char **envp);
+void terminal(char *argv[], char *envp[]);
+char *get_input(void);
 
 /**
  * struct environvar - linked list of enviroment variables
@@ -53,19 +58,5 @@ typedef struct environvar
         struct environvar *next;
 }
 _var;
-
-/*struct env_info -  contains information on current environment
- * 
- * @fmane: launced file name
- * @nm_cls: number of commands
- * @sh_arg: shell argument
- */
-
-typedef struct info
-{
-	char *fname;
-	int nm_cls;
-	char *sh_arg;
-} cals_t;
 
 #endif

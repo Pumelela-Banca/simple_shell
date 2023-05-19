@@ -8,14 +8,14 @@
  * Return: void
  */
 
-void print_error(cals_t *env_info, char *err_msg)
+void print_error(int num_cy, char *argv[], char *cmds[])
 {
-	printstr(env_info->fname);
+	printstr(argv[0]);
 	printstr(": ");
-	print_num(env_info->nm_cls);
+	print_num(num_cy);
 	printstr(": ");
-	printstr(env_info->sh_arg);
+	printstr(cmds[0]);
 	printstr(": ");
-	printstir(err_msg);
+	printstir("not found");
 	printstr("\n");
 }
