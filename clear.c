@@ -8,6 +8,6 @@ void _clear(char *envp[], char *cmds[])
 {
 	(void)envp;
 
+	printstr("\033[2J\033[H");
 	_free(cmds);
-	printf("\033[2J\033[H");
 }

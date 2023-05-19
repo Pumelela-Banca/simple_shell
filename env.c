@@ -10,7 +10,8 @@ void _env(char *envp[], char *cmds[])
 
 	while (envp[i] != NULL)
 	{
-		printf("%s\n", envp[i]);
+		printstr(envp[i]);
+		_putchar('\n');
 		i++;
 	}
 	_free(cmds);

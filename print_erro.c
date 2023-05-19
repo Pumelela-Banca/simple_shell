@@ -16,6 +16,6 @@ void print_error(int num_cy, char *argv[], char *cmds[])
 	printstr(": ");
 	printstr(cmds[0]);
 	printstr(": ");
-	printstir("not found");
+	printstr("not found");
 	printstr("\n");
 }
