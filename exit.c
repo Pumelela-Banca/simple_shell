@@ -1,3 +1,5 @@
+# include "main.h"
+
 /**
  *  _exit_ - exit
  *  @envp: *envp[]
