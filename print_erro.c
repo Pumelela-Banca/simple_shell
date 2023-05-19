@@ -14,7 +14,7 @@ void print_error(int *num_cy, char *argv[], char *cmds[])
 {
 	printstr(argv[0]);
 	printstr(": ");
-	print_num(num_cy);
+	print_num(*num_cy);
 	printstr(": ");
 	printstr(cmds[0]);
 	printstr(": ");
