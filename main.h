@@ -10,6 +10,7 @@
 # include <fcntl.h>
 # include <string.h>
 # include <dirent.h>
+# include <stdlib.h>
 
 extern char **environ;
 
