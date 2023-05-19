@@ -13,6 +13,21 @@
 
 extern char **environ;
 
+/**
+ * struct environvar - linked list of enviroment variables
+ * @name: index
+ * @value: value
+ * @envirovar: next variable
+ */
+
+typedef struct environvar
+{
+        char *name;
+        char *value;
+        struct environvar *next;
+} _var;
+
+
 char *getpath(char *cmd, char *envp[]);
 void execfile(char *cmds[], char *envp[]);
 char *_strdup(const char *s1);
@@ -50,18 +65,5 @@ void free_list(_var *head);
 void listpopulate(_var *head, char *new[]);
 
 
-/**
- * struct environvar - linked list of enviroment variables
- * @name: index
- * @value: value
- * @envirovar: next variable
- */
-
-typedef struct environvar
-{
-        char *name;
-        char *value;
-        struct environvar *next;
-} _var;
 
 #endif

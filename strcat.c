@@ -4,7 +4,7 @@
  * @s2: string2
  * Return: pointer to concatenated string
  */
-char *_strcat(char *restrict s1, const char *restrict s2)
+char *_strcat(char *restricts1, const char *restricts2)
 {
 	char *restrict v1 = s1;
 	const char *restrict v2 = s2;
