@@ -49,11 +49,10 @@ void terminal(char *argv[], char *envp[])
 		}
 		else
 		{
-			real = checkdir("/", cmds[0]);
+			real = getpath(cmds[0], envp);
 			if (real == NULL)
 			{
 				print_error(count, argv, cmds);
-				free(real);
 				_free(cmds);
 				continue;
 			}

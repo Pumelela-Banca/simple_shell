@@ -43,6 +43,7 @@ char *checkdir(char *name, char *file);
 void no_terminal(char **argv, char **envp);
 void terminal(char *argv[], char *envp[]);
 char *get_input(void);
+char *readfile(char *filepath);
 
 /**
  * struct environvar - linked list of enviroment variables
