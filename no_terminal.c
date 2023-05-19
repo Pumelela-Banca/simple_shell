@@ -14,10 +14,19 @@ void no_terminal(char **argv, char **envp)
 	char *real = NULL;
 	char *buff = NULL;
 	char **cmds = NULL;
+	char *path;
 	size_t n = 1024;
 	int i;
 
-	buff = get_input();
+	if (argv[1])
+	{
+		path = checkdir("/", argv[1]);
+		if (path)
+			buff = readfile(path);
+	}
+	else
+		buff = get_input();
+
 	cmds = tokenise(buff);
 	if (_strcmp(cmds[0], "exit") == 0)
 		_exit_(envp, cmds);
@@ -33,25 +42,23 @@ void no_terminal(char **argv, char **envp)
 		_env_var_print(envp, cmds);
 	else
 	{
-		real = checkdir("/", cmds[0]);
+		real = getpath(cmds[0], envp);
 		if (real == NULL)
 		{
-			printstr(__FILE__);
-			printstr(": 1: ");
-			printstr(cmds[0]);
-			printstr(" :not found");
-			printstr("\n");
-			free(buff);
-			free(cdms);
+			print_error(1, argv, cmds);
 			free(real);
 			exit(127);
 		}
+		tmp = cmds[0];
+		cmds[0] = strdup(real);
+		free(tmp);
+		free(real);
 		file_exec(envp, cmds);
 	}
 }
 
 /**
- * shellprint2 - gets line from echo and removes \n
+ * get_input - gets line from echo and removes \n
  *
  * Returns: buffer
  */
