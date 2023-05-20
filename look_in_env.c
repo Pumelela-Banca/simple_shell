@@ -21,4 +21,5 @@ char *look_in_env(_var *head, char *name)
 		tmp = tmp->next;
 	}
 	free_list(head);
+	return (NULL);
 }

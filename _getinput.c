@@ -11,6 +11,8 @@ char *getpath(char *cmd, char *envp[])
 	char *buff = NULL, *token = NULL;
 	char *path = NULL;
 
+	(void)envp;
+
 	if (access(cmd, X_OK) == 0)
 	{
 		buff = _strdup(cmd);
