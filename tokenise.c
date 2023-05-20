@@ -7,7 +7,6 @@
 char **tokenise(char *buff)
 {
 
-	char *path = NULL;
 	char *delim = " ";
 	char *token = NULL;
 	int i = 0, j = 0;

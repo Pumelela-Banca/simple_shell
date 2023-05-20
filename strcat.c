@@ -1,13 +1,14 @@
+# include "main.h"
 /**
  * _strcat - string concatenate
  * @s1: string1
  * @s2: string2
  * Return: pointer to concatenated string
  */
-char *_strcat(char *restrict s1, const char *restrict s2)
+char *_strcat(char *s1, const char *s2)
 {
-	char *restrict v1 = s1;
-	const char *restrict v2 = s2;
+	char *v1 = s1;
+	const char *v2 = s2;
 	while (*v1 != '\0')
 	{
 		v1++;
