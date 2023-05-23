@@ -1,22 +1,21 @@
 # include "main.h"
 /**
  * getpath - function
+ *
  * @cmd: cmd
- * @envp: envp
+ *
  * Return: buff
  */
 
-char *getpath(char *cmd, char *envp[])
+char *getpath(char *cmd)
 {
 	char *buff = NULL, *token = NULL;
 	char *path = NULL;
 
-	(void)envp;
-
 	if (access(cmd, X_OK) == 0)
 	{
 		buff = _strdup(cmd);
-		return (buff);
+		return(buff);
 	}
 	path = _getenv("PATH");
 	token = strtok(path, ":");
@@ -26,25 +25,24 @@ char *getpath(char *cmd, char *envp[])
 		{
 			free(path);
 			perror("Error: can't allocate buffer space");
+			_free(evar);
 			exit(1);
 		}
 		_strcpy(buff, token);
-		_strcat(buff, "/");
+		_strcat(buff,"/");
 		_strcat(buff, cmd);
 		if (access(buff, X_OK) == 0)
 		{
 			free(path);
-			return (buff);
+			return(buff);
 		}
 		else
 		{
+			free(buff);
 			token = strtok(NULL, ":");
-		}
-	} while (token != NULL);
-
-	free(buff);
-	free(path);
-
-	return (NULL);
-
+		} while (token != NULL);
+		free(buff);
+		free(path);
+		return (NULL);
+}
 }
