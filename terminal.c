@@ -19,36 +19,36 @@ void terminal(char *argv[], char *envp[])
 		cmds = tokenise(buff);
 		count++;
 		if (_strcmp(cmds[0], "exit") == 0)
-			_exit_(envp, cmds);
+			_exit_(cmds);
 		else if (_strcmp(cmds[0], "clear") == 0)
 		{
-			_clear(envp, cmds);
+			_clear(cmds);
 			continue;
 		}
 		else if (_strcmp(cmds[0], "cd") == 0)
 		{
-			_cd(envp, argv, cmds);
+			_cd(argv, cmds);
 			continue;
 		}
 		else if (_strcmp(cmds[0], "which") == 0)
 		{
-			_which(envp, cmds);
+			_which(cmds);
 			continue;
 		}
 		else if (_strcmp(cmds[0], "env") == 0)
 		{
-			_env(envp, cmds);
+			_env(cmds);
 			continue;
 		}
 		else if ((_strcmp(cmds[0], "echo") == 0) &&
 				(cmds[1][0] == '$'))
 		{
-			_env_var_print(envp, cmds);
+			_env_var_print(cmds);
 			continue;
 		}
 		else
 		{
-			file_exec(envp, cmds, argv, ptr);
+			file_exec(cmds, argv, ptr);
 			continue;
 		}
 		j++;
