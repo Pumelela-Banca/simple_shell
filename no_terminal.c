@@ -29,23 +29,23 @@ void no_terminal(char **argv, char **envp)
 	}
 	cmds = tokenise(buff);
 	if (_strcmp(cmds[0], "exit") == 0)
-		_exit_(envp, cmds);
+		_exit_(cmds);
 	else if (_strcmp(cmds[0], "clear") == 0)
-		_clear(envp, cmds);
+		_clear(cmds);
 	else if (_strcmp(cmds[0], "cd") == 0)
-		_cd(envp, argv, cmds);
+		_cd(argv, cmds);
 	else if (_strcmp(cmds[0], "which") == 0)
 	{
-		if (_which(envp, cmds) == 1)
+		if (_which(cmds) == 1)
 			exit(1);
 	}
 	else if (_strcmp(cmds[0], "env") == 0)
-		_env(envp, cmds);
+		_env(cmds);
 	else if ((_strcmp(cmds[0], "echo") == 0) && (cmds[1][0] == '$'))
-		_env_var_print(envp, cmds);
+		_env_var_print(cmds);
 	else
 	{
-		if (file_exec(envp, cmds, argv, ptr) == 1)
+		if (file_exec(cmds, argv, ptr) == 1)
 			exit(127);
 	}
 }
