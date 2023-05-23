@@ -8,79 +8,59 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <fcntl.h>
-# include <string.h>
+#include <string.h>
 # include <dirent.h>
-# include <stdlib.h>
 
 extern char **environ;
-
-/**
- * struct environvar - linked list of enviroment variables
- * @name: index
- * @value: value
- * @envirovar: next variable
- */
+char **evar  = NULL;
 
 typedef struct environvar
 {
         char *name;
         char *value;
+
         struct environvar *next;
-} _var;
+}
+_var;
 
-
-char *getpath(char *cmd, char *envp[]);
-void execfile(char *cmds[], char *envp[]);
+char *getpath(char *cmd);
+void execfile(char *cmds[]);
 char *_strdup(const char *s1);
 void _free(char *cmds[]);
 int _strcmp(const char *str1, const char *str2);
 char *_strdup(const char *s1);
-char *_strcat(char *s1, const char *s2);
+char *_strcat(char *restrict s1, const char *restrict s2);
 char *_strcpy(char * dst, const char * src);
+size_t _strlen(const char *s);
+char *checkdir(char *name, char *file);
+int printstr(char *s);
 void print_error(int *num_cy, char *argv[], char *cmds[]);
-void _clear(char *envp[], char *cmds[]);
-void _env(char *envp[], char *cmds[]);
-void _exit_(char *envp[], char *cmds[]); /*might need to include*/
+char **envtokenise(char **env_init);
+char **tokenise(char *buff);
+void _setenv(char *cmds[]);
+char *_getenv(char *name);
+void _exit_(char *cmds[]);
+void free_list(_var *head);
+char *look_in_env(_var *head, char *name);
+void _clear(char *cmds[]);
+void _exit_(char *cmds[]);
+void _cd(char *argv[], char *cmds[]);
+int _which(char *cmds[]);
+void _env(char *cmds[]);
+void _env_var_print(char *cmds[]);
+int file_exec(char *cmds[], char *argv[], int *count);
+char *_shellprint(void);
+int _putchar(char c);
 int print_num(int n);
 int printstr(char *s);
-int _strcmp(const char *str1, const char *str2);
-char *_strcpy(char *dst, const char *src);
-size_t _strlen(const char *s);
-char *_strdup(const char *s1);
-int _which(char *envp[], char *cmds[]);
-void execfile(char *cmds[], char *envp[]);
-char *_shellprint(void);
-char *checkdir(char *name, char *file);
-void no_terminal(char **argv, char **envp);
-void terminal(char *argv[], char *envp[]);
-char *get_input(void);
+char **_envset(char *cmds[]);
+void _env_modify(char *cmds[]);
+void _setenv(char *cmds[]);
+char ** _env_delete(char *cmds[]);
+void _unsetenv(char *cmds[]);
+void terminal(char *argv[]);
 char *readfile(char *filepath);
-int file_exec(char *envp[], char *cmds[], char *argv[], int *count);
-int _putchar(char c);
-char **tokenise(char *buff);
-void free_list(_var *head);
-void listpopulate(_var *head, char *new[]);
-char *_getenv(char *name);
-char **envtokenise(void);
-char *look_in_env(_var *head, char *name);
-char *getpath(char *cmd, char *envp[]);
-void execfile(char *cmds[], char *envp[]);
-char *_strdup(const char *s1);
-void _free(char *cmds[]);
-int _strcmp(const char *str1, const char *str2);
-char *_strdup(const char *s1);
-/*char *_strcat(char *restrict s1, const char *restrict s2);*/
-char *_strcpy(char * dst, const char * src);
-size_t _strlen(const char *s);
-char *checkdir(char *name, char *file);
-void _free(char *cmds[]);
-int printstr(char *s);
-void print_error(int *num_cy, char *argv[], char *cmds[]);
-int file_exec(char *envp[], char *cmds[], char *argv[], int *count);
-void free_list(_var *head);
-char **envtokenise(void);
-void _cd(char *envp[], char *argv[], char *cmds[]);
-void _env_var_print(char *envp[], char *cmds[]);
-
+void no_terminal(char **argv);
+char *get_input(void);
 
 #endif

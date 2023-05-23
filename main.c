@@ -14,10 +14,13 @@ int main(int argc, char *argv[], char *envp[])
 {
 
 	(void)argc;
+	(void)envp;
 
-	if (argc == 2 || isatty(STDIN_FILENO) == 0)
-		no_terminal(argv, envp);
+	evar = envtokenise(environ);
+
+	if (argc == 2 || (isatty(STDIN_FILENO) == 0))
+		no_terminal(argv);
 	else
-		terminal(argv, envp);
+		terminal(argv);
 	return (0);
 }
