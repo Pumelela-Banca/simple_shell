@@ -1,4 +1,5 @@
 # include "main.h"
+
 /**
  * get_input - function to get input (non- interactive)
  * Return: buffer
