@@ -33,7 +33,7 @@ void no_terminal(char **argv)
 	else if (_strcmp(cmds[0], "clear") == 0)
 		_clear(cmds);
 	else if (_strcmp(cmds[0], "cd") == 0)
-		_cd(argv, cmds);
+		_cd(cmds);
 	else if (_strcmp(cmds[0], "which") == 0)
 	{
 		if (_which(cmds) == 1)

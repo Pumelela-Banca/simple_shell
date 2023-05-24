@@ -27,7 +27,7 @@ void terminal(char *argv[])
 		}
 		else if (_strcmp(cmds[0], "cd") == 0)
 		{
-			_cd(argv, cmds);
+			_cd(cmds);
 			continue;
 		}
 		else if (_strcmp(cmds[0], "which") == 0)
