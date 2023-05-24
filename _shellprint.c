@@ -24,6 +24,7 @@ char *_shellprint(void)
 	{
 		free(buff);
 		_putchar('\n');
+		_free(evar_);
 		exit(0);
 	}
 	if (buff[0] == '\n')
