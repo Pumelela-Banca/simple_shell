@@ -14,21 +14,18 @@
 extern char **environ;
 extern char **evar_;
 
-
+/**
+ * struct built_in_ - structure
+ * @name: name of command
+ * @fun: function related
+ *
+ * Description: this is a struct for builtin functs
+ */
 typedef struct built_in_
 {
 	char *name;
 	void (*fun)(char *cmds[]);
 } ff_t;
-
-typedef struct environvar
-{
-        char *name;
-        char *value;
-
-        struct environvar *next;
-}
-_var;
 
 int _atoi(char *s);
 char *getpath(char *cmd);
@@ -38,7 +35,7 @@ void _free(char *cmds[]);
 int _strcmp(const char *str1, const char *str2);
 char *_strdup(const char *s1);
 char *_strcat(char *s1, const char *s2);
-char *_strcpy(char * dst, const char * src);
+char *_strcpy(char *dst, const char *src);
 size_t _strlen(const char *s);
 char *checkdir(char *name, char *file);
 int printstr(char *s);
@@ -67,7 +64,7 @@ int printstr(char *s);
 char **_envset(char *cmds[]);
 void _env_modify(char *cmds[]);
 void _setenv(char *cmds[]);
-char ** _env_delete(char *cmds[]);
+char **_env_delete(char *cmds[]);
 void _unsetenv(char *cmds[]);
 void terminal(char *argv[]);
 char *readfile(char *filepath);
