@@ -10,7 +10,7 @@
  */
 void terminal(char *argv[])
 {
-	int j = 0, count = 0, i = 0, k = 0, *ptr = &count;
+	int count = 0, i = 0, k = 0, *ptr = &count;
 	char **cmds = NULL;
 	char *buff = NULL;
 	ff_t built[] = {{"exit", _exit_}, {"clear", _clear}, {"cd", _cd}, 
