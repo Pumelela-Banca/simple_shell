@@ -40,6 +40,15 @@ void terminal(char *argv[])
 			_env(cmds);
 			continue;
 		}
+		else if (_strcmp(cmds[0], "setenv") == 0)
+		{
+			_setenv(cmds);
+			continue;
+		}
+		else if (_strcmp(cmds[0], "unsetenv") == 0)
+		{
+			_unsetenv(cmds);
+			continue;}
 		else if ((_strcmp(cmds[0], "echo") == 0) &&
 				(cmds[1][0] == '$'))
 		{

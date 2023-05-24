@@ -41,6 +41,10 @@ void no_terminal(char **argv)
 	}
 	else if (_strcmp(cmds[0], "env") == 0)
 		_env(cmds);
+	else if (_strcmp(cmds[0], "setenv") == 0)
+            _setenv(cmds);
+	else if (_strcmp(cmds[0], "unsetenv") == 0)
+		_unsetenv(cmds);
 	else if ((_strcmp(cmds[0], "echo") == 0) && (cmds[1][0] == '$'))
 		_env_var_print(cmds);
 	else
