@@ -21,18 +21,18 @@ char *checkdir(char *name, char *file)
 	entity = readdir(dir);
 	while (entity != NULL)
 	{
-		strcat(buff, name);
-		if (strcmp(name, "/") != 0)
-			strcat(buff, "/");
-		strcat(buff, entity->d_name);
-		if ((strcmp(entity->d_name, ".") != 0)
-				&& (strcmp(entity->d_name, "..") != 0) && (entity->d_type == 4))
+		_strcat(buff, name);
+		if (_strcmp(name, "/") != 0)
+			_strcat(buff, "/");
+		_strcat(buff, entity->d_name);
+		if ((_strcmp(entity->d_name, ".") != 0)
+				&& (_strcmp(entity->d_name, "..") != 0) && (entity->d_type == 4))
 		{
-			path = malloc((strlen(buff) + strlen(file) + 2) * sizeof(char));
-			strcpy(path, buff);
+			path = malloc((_strlen(buff) + _strlen(file) + 2) * sizeof(char));
+			_strcpy(path, buff);
 			if (file[0] != '\0')
-				strcat(path, "/");
-			strcat(path, file);
+				_strcat(path, "/");
+			_strcat(path, file);
 			if (access(path, X_OK) == 0)
 			{
 				closedir(dir);

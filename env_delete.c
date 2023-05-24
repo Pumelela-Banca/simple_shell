@@ -29,7 +29,7 @@ char **_env_delete(char *cmds[])
 			j++;
 		}
 		token[j] = '\0';
-		if (strcmp(token, cmds[1]) == 0)
+		if (_strcmp(token, cmds[1]) == 0)
 		{
 			i++;
 			continue;

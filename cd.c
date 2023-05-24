@@ -9,6 +9,7 @@ void _cd_home(char *cmds[])
 
 	char *buff = NULL, **new = NULL;
 	char *tmp = NULL, *tmp1 = NULL;
+	(void)cmds;
 
 	tmp = _getenv("HOME");
 	tmp1 = _getenv("PWD");
@@ -49,7 +50,7 @@ void _cd_home(char *cmds[])
 void _cd_dir(char *cmds[])
 {
 	char *buff = NULL, **new = NULL;
-	char *tmp = NULL, *old = NULL;
+	char *tmp = NULL;
 	char cwd[1024];
 
 	tmp = _getenv("PWD");
@@ -141,7 +142,7 @@ void _cd(char *cmds[])
 	}
 	if (cmds[1] != NULL)
 	{
-		if (strcmp(cmds[1], "-") == 0)
+		if (_strcmp(cmds[1], "-") == 0)
 		{
 			_cd_prev(cmds);
 		}
