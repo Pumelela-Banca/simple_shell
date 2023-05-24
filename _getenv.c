@@ -15,19 +15,19 @@ char *_getenv(char *name)
 
 	int i = 0, j = 0;
 
-	while (evar[i] != NULL)
+	while (evar_[i] != NULL)
 	{
 		j = 0;
-		while (evar[i][j] != '=')
+		while (evar_[i][j] != '=')
 		{
-			token[j] = evar[i][j];
+			token[j] = evar_[i][j];
 			j++;
 		}
 		token[j] = '\0';
 		if (_strcmp(token, name) == 0)
 		{
 			j++;
-			tmp = &evar[i][j];
+			tmp = &evar_[i][j];
 			new = _strdup(tmp);
 			return (new);
 		}

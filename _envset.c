@@ -13,19 +13,19 @@ char **_envset(char *cmds[])
 	char **new = NULL;
 	int j = 0, k = 0;
 
-	while (evar[j] != NULL)
+	while (evar_[j] != NULL)
 		j++;
 	j = j + 2;
 	new = malloc(j * sizeof(char *));
-	if(new == NULL)
+	if (new == NULL)
 	{
 		perror("Error");
 		return (NULL);
 	}
 	j = 0;
-	while (evar[j] != NULL)
+	while (evar_[j] != NULL)
 	{
-		new[j] = _strdup(evar[j]);
+		new[j] = _strdup(evar_[j]);
 		if (new[j] == NULL)
 			for (k = 0; k < j; k++)
 				free(new[k]);

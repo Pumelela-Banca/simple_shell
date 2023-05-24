@@ -29,8 +29,8 @@ void _unsetenv(char *cmds[])
 	}
 	else
 	{
-		tmp = evar;
-		evar = _env_delete(cmds);
+		tmp = evar_;
+		evar_ = _env_delete(cmds);
 		_free(tmp);
 		_free(cmds);
 		free(envr);

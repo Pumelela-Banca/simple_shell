@@ -48,7 +48,8 @@ void terminal(char *argv[])
 		else if (_strcmp(cmds[0], "unsetenv") == 0)
 		{
 			_unsetenv(cmds);
-			continue;}
+			continue;
+		}
 		else if ((_strcmp(cmds[0], "echo") == 0) &&
 				(cmds[1][0] == '$'))
 		{

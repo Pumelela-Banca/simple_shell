@@ -16,7 +16,7 @@ int main(int argc, char *argv[], char *envp[])
 	(void)argc;
 	(void)envp;
 
-	evar = envtokenise(environ);
+	evar_ = envtokenise(environ);
 
 	if (argc == 2 || (isatty(STDIN_FILENO) == 0))
 		no_terminal(argv);

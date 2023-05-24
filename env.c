@@ -8,9 +8,9 @@ void _env(char *cmds[])
 {
 	int i = 0;
 
-	while (evar[i] != NULL)
+	while (evar_[i] != NULL)
 	{
-		printstr(evar[i]);
+		printstr(evar_[i]);
 		printstr("\n");
 		i++;
 	}

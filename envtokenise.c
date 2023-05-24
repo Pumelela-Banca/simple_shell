@@ -17,7 +17,7 @@ char **envtokenise(char **env_init)
 	}
 	j++;
 	new = malloc(j * sizeof(char *));
-	if(new == NULL)
+	if (new == NULL)
 	{
 		perror("Error");
 		return (NULL);

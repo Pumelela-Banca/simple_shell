@@ -12,7 +12,7 @@ char **_env_delete(char *cmds[])
 	char **new = NULL;
 	int j = 0, k = 0, z = 0, i = 0;
 
-	while (evar[j] != NULL)
+	while (evar_[j] != NULL)
 		j++;
 	new = malloc(j * sizeof(char *));
 	if (new == NULL)
@@ -20,12 +20,12 @@ char **_env_delete(char *cmds[])
 		perror("can't allocate memory");
 		return (NULL);
 	}
-	while (evar[i] != NULL)
+	while (evar_[i] != NULL)
 	{
 		j = 0;
-		while (evar[i][j] != '=')
+		while (evar_[i][j] != '=')
 		{
-			token[j] = evar[i][j];
+			token[j] = evar_[i][j];
 			j++;
 		}
 		token[j] = '\0';
@@ -34,7 +34,7 @@ char **_env_delete(char *cmds[])
 			i++;
 			continue;
 		}
-		new[z] = _strdup(evar[i]);
+		new[z] = _strdup(evar_[i]);
 		if (new[i] == NULL)
 		{
 			for (k = 0; k < i; k++)

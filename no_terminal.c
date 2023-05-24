@@ -19,14 +19,10 @@ void no_terminal(char **argv)
 	{
 		path = checkdir("/", argv[1]);
 		if (path)
-		{
 			buff = readfile(path);
-		}
 	}
 	else
-	{
 		buff = get_input();
-	}
 	cmds = tokenise(buff);
 	if (_strcmp(cmds[0], "exit") == 0)
 		_exit_(cmds);

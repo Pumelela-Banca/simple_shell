@@ -27,8 +27,8 @@ void _setenv(char *cmds[])
 	envr = _getenv(cmds[1]);
 	if (envr == NULL)
 	{
-		tmp = evar;
-		evar = _envset(cmds);
+		tmp = evar_;
+		evar_ = _envset(cmds);
 		_free(tmp);
 		_free(cmds);
 	}
