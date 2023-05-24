@@ -11,9 +11,8 @@
 
 void no_terminal(char **argv)
 {
-	char *buff = NULL, *path, *real = NULL;
+	char *buff = NULL, *path;
 	char **cmds = NULL;
-	size_t n = 1024;
 	int count = 1, *ptr = &count;
 
 	if (argv[1])
