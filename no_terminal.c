@@ -51,7 +51,7 @@ void no_terminal(char **argv)
 		if (file_exec(cmds, argv, ptr) == 1)
 		{
 			_free(evar_);
-			exit(127);
+			exit(0);
 		}
 	}
 	_free(evar_);
