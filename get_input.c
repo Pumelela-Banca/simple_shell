@@ -21,12 +21,12 @@ char *get_input(void)
 	if (z == -1)
 	{
 		free(buff);
-		free(evar_);
+		_free(evar_);
 		exit(0);
 	}
 	else if (buff[0] == '\n')
 	{
-		free(evar_);
+		_free(evar_);
 		free(buff);
 		exit(0);
 	}
