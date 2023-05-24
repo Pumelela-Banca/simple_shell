@@ -10,10 +10,8 @@
 
 void _setenv(char *cmds[])
 {
-	int i = 0, j = 0, k = 0;
-	char **new = NULL;
+	int i = 0;
 	char **tmp = NULL;
-	char token[1024];
 	char *envr = NULL;
 
 	while (cmds[i] != NULL)
