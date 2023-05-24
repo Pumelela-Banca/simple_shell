@@ -12,8 +12,8 @@ void terminal(char *argv[])
 	int count = 0, i = 0, k = 0, *ptr = &count;
 	char **cmds = NULL;
 	char *buff = NULL;
-	ff_t built[] = {{"exit", _exit_}, {"clear", _clear}, {"cd", _cd},
-		{"env", _env}, {"setenv", _setenv}, {"unsetenv", _unsetenv}, {NULL, NULL}};
+	ff_t built[] = {{"exit", _exit_}, {"cd", _cd}, {"env", _env},
+		{"setenv", _setenv}, {"unsetenv", _unsetenv}, {NULL, NULL}};
 
 	do {
 		buff = _shellprint();

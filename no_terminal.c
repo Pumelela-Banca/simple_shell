@@ -25,8 +25,6 @@ void no_terminal(char **argv)
 	cmds = tokenise(buff);
 	if (_strcmp(cmds[0], "exit") == 0)
 		_exit_(cmds);
-	else if (_strcmp(cmds[0], "clear") == 0)
-		_clear(cmds);
 	else if (_strcmp(cmds[0], "cd") == 0)
 		_cd(cmds);
 	else if (_strcmp(cmds[0], "which") == 0)
