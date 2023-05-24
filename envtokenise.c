@@ -3,6 +3,8 @@
 /**
  * envtokenise - separates enviromental variables
  *
+ * @env_init: env variable
+ *
  * Return: list of directories
  */
 

@@ -1,18 +1,22 @@
 # include "main.h"
 
 /**
- * removespace: function to remove space;
+ * removespace - function to remove space
+ *
  * @s: string input
+ *
  * Return: string
- */ 
+ */
+
 char *removespace(char *s)
 {
 	char *tmp = s;
+
 	while (*tmp == ' ')
 		tmp++;
-	
 	return (_strdup(tmp));
 }
+
 /**
  * get_input - function to get input (non- interactive)
  * Return: buffer

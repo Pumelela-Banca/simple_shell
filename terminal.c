@@ -4,7 +4,6 @@
  * terminal - controls interactive mode  in shell
  *
  * @argv: command arguments
- * @envp: environment variables
  *
  * Return: void
  */
@@ -13,7 +12,7 @@ void terminal(char *argv[])
 	int count = 0, i = 0, k = 0, *ptr = &count;
 	char **cmds = NULL;
 	char *buff = NULL;
-	ff_t built[] = {{"exit", _exit_}, {"clear", _clear}, {"cd", _cd}, 
+	ff_t built[] = {{"exit", _exit_}, {"clear", _clear}, {"cd", _cd},
 		{"env", _env}, {"setenv", _setenv}, {"unsetenv", _unsetenv}, {NULL, NULL}};
 
 	do {
@@ -28,13 +27,7 @@ void terminal(char *argv[])
 		i = 0;
 		while (built[i].name != NULL)
 		{
-			if (_strcmp(cmds[0], built[i].name) == 0)
-			{
-				built[i].fun(cmds);
-				k++;
-			}
-			i++;
-		}
+			:w
 		if (k != 0)
 			k = 0;
 		else if (_strcmp(cmds[0], "which") == 0)

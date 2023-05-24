@@ -33,7 +33,7 @@ char *_shellprint(void)
 	{
 		tmp = removespace(buff);
 		free(buff);
-		buff = tmp;	
+		buff = tmp;
 		if (buff[0] == '\n')
 			return (buff);
 		while (buff[i] != '\0')
