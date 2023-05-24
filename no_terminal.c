@@ -50,8 +50,10 @@ void no_terminal(char **argv)
 	{
 		if (file_exec(cmds, argv, ptr) == 1)
 		{
-			free(evar_);
+			_free(evar_);
 			exit(127);
 		}
 	}
+	_free(evar_);
+	exit(0);
 }
