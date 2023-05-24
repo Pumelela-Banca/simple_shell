@@ -25,7 +25,7 @@ void terminal(char *argv[])
 		}
 		cmds = tokenise(buff);
 		count++;
-
+		i = 0;
 		while (built[i].name != NULL)
 		{
 			if (_strcmp(cmds[0], built[i].name) == 0)
