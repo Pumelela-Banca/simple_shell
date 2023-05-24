@@ -36,26 +36,14 @@ void terminal(char *argv[])
 			i++;
 		}
 		if (k != 0)
-		{
 			k = 0;
-			continue;
-		}
 		else if (_strcmp(cmds[0], "which") == 0)
-		{
 			_which(cmds);
-			continue;
-		}
 		else if ((_strcmp(cmds[0], "echo") == 0) &&
 				(cmds[1][0] == '$'))
-		{
 			_env_var_print(cmds);
-			continue;
-		}
 		else
-		{
 			file_exec(cmds, argv, ptr);
-			continue;
-		}
-		j++;
-	} while (j < 10);
+		continue;
+	} while (1);
 }
