@@ -42,7 +42,6 @@ char *getpath(char *cmd)
 			token = strtok(NULL, ":");
 		}
 	} while (token != NULL);
-	free(buff);
 	free(path);
 	return (NULL);
 }

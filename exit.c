@@ -11,14 +11,14 @@ void _exit_(char *cmds[])
 	if (cmds[1] == NULL)
 	{
 		_free(cmds);
-		_free(evar);
+		_free(evar_);
 		exit(0);
 	}
 	else
 	{
 		i = atoi(cmds[1]);
 		_free(cmds);
-		_free(evar);
+		_free(evar_);
 		exit(i);
 	}
 }
