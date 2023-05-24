@@ -10,7 +10,7 @@ void _unsetenv(char *cmds[])
 	int i = 0;
 	char *envr = _getenv(cmds[1]);
 	char **tmp = NULL;
-	
+
 	while (cmds[i] != NULL)
 	{
 		i++;
@@ -21,6 +21,7 @@ void _unsetenv(char *cmds[])
 		perror("exess arguments on setenv");
 		return;
 	}
+
 	if (envr == NULL)
 	{
 		perror("variable does not exist");

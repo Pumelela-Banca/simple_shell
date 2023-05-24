@@ -14,6 +14,13 @@
 extern char **environ;
 extern char **evar_;
 
+
+typedef struct built_in
+{
+	char *name;
+	void (fun)(char **cmds);
+} ff_t;
+
 typedef struct environvar
 {
         char *name;

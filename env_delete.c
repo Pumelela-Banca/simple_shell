@@ -11,7 +11,7 @@ char **_env_delete(char *cmds[])
 	char token[1024];
 	char **new = NULL;
 	int j = 0, k = 0, z = 0, i = 0;
-	
+
 	while (evar_[j] != NULL)
 		j++;
 	new = malloc(j * sizeof(char *));

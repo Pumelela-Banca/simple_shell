@@ -10,9 +10,11 @@
  */
 void terminal(char *argv[])
 {
-	int j = 0, count = 0, *ptr = &count;
+	int j = 0, count = 0, i = 0, k = 0, *ptr = &count;
 	char **cmds = NULL;
 	char *buff = NULL;
+	ff_t built[] = {{"exit", _exit_}, {"clear", _clear}, {"cd", _cd}, 
+		{"env", _env}, {"setenv", _setenv}, {"unsetenv", _unsetenv}, {NULL, NULL}};
 
 	do {
 		buff = _shellprint();
@@ -23,9 +25,24 @@ void terminal(char *argv[])
 		}
 		cmds = tokenise(buff);
 		count++;
-		if (_strcmp(cmds[0], "exit") == 0)
-			_exit_(cmds);
-		else if (_strcmp(cmds[0], "clear") == 0)
+
+		while (built[i]->name != NULL)
+		{
+			if (_strcmp(cmds[0], built[i]->name) == 0)
+			{
+				built[i]->fun(cmds);
+				k++;
+			}
+			i++;
+		}
+		if (k != 0)
+		{
+			k = 0;
+			continue;
+		}
+		/*if (_strcmp(cmds[0], "exit") == 0)
+			_exit_(cmds);*/
+		/*else if (_strcmp(cmds[0], "clear") == 0)
 		{
 			_clear(cmds);
 			continue;
@@ -34,13 +51,13 @@ void terminal(char *argv[])
 		{
 			_cd(cmds);
 			continue;
-		}
+		}*/
 		else if (_strcmp(cmds[0], "which") == 0)
 		{
 			_which(cmds);
 			continue;
 		}
-		else if (_strcmp(cmds[0], "env") == 0)
+		/*else if (_strcmp(cmds[0], "env") == 0)
 		{
 			_env(cmds);
 			continue;
@@ -54,7 +71,7 @@ void terminal(char *argv[])
 		{
 			_unsetenv(cmds);
 			continue;
-		}
+		}*/
 		else if ((_strcmp(cmds[0], "echo") == 0) &&
 				(cmds[1][0] == '$'))
 		{
