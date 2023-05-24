@@ -26,11 +26,11 @@ void terminal(char *argv[])
 		cmds = tokenise(buff);
 		count++;
 
-		while (built[i]->name != NULL)
+		while (built[i].name != NULL)
 		{
-			if (_strcmp(cmds[0], built[i]->name) == 0)
+			if (_strcmp(cmds[0], built[i].name) == 0)
 			{
-				built[i]->fun(cmds);
+				built[i].fun(cmds);
 				k++;
 			}
 			i++;

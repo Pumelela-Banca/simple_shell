@@ -15,7 +15,7 @@ extern char **environ;
 extern char **evar_;
 
 
-typedef struct built_in
+typedef struct built_in_
 {
 	char *name;
 	void (*fun)(char *cmds[]);
