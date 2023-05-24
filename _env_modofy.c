@@ -12,7 +12,6 @@ void _env_modify(char *cmds[])
 {
 	char token[1024];
 	int i = 0, j = 0;
-	char *tmp = NULL;
 
 	while (evar[i] != NULL)
 	{
@@ -26,7 +25,7 @@ void _env_modify(char *cmds[])
 	if (_strcmp(token, cmds[1]) == 0)
 	{
 		free(evar[i]);
-		evar[i] = malloc(strlen(cmds[1]) + strlen(cmds[2]) + 2);
+		evar[i] = malloc(_strlen(cmds[1]) + _strlen(cmds[2]) + 2);
 		if (evar[i] == NULL)
 		{
 			_free(evar);

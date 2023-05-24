@@ -29,7 +29,7 @@ char *_strdup(const char *s1);
 void _free(char *cmds[]);
 int _strcmp(const char *str1, const char *str2);
 char *_strdup(const char *s1);
-char *_strcat(char *restrict s1, const char *restrict s2);
+char *_strcat(char *s1, const char *s2);
 char *_strcpy(char * dst, const char * src);
 size_t _strlen(const char *s);
 char *checkdir(char *name, char *file);
