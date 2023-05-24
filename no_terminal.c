@@ -11,8 +11,9 @@
 
 void no_terminal(char **argv)
 {
-	char *buff = NULL;
-	char **cmds = NULL, *path;
+	char *buff = NULL, *path, *real = NULL;
+	char **cmds = NULL;
+	size_t n = 1024;
 	int count = 1, *ptr = &count;
 
 	if (argv[1])
@@ -33,7 +34,10 @@ void no_terminal(char **argv)
 	else if (_strcmp(cmds[0], "which") == 0)
 	{
 		if (_which(cmds) == 1)
+		{
+			_free(evar_);
 			exit(1);
+		}
 	}
 	else if (_strcmp(cmds[0], "env") == 0)
 		_env(cmds);
@@ -46,6 +50,9 @@ void no_terminal(char **argv)
 	else
 	{
 		if (file_exec(cmds, argv, ptr) == 1)
+		{
+			free(evar_);
 			exit(127);
+		}
 	}
 }
