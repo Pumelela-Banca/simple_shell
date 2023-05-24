@@ -22,11 +22,11 @@ char *get_input(void)
 	{
 		exit(0);
 	}
-	else if (z == 1)
+	else if (buff[0] == '\n')
 	{
 		free(buff);
 		exit(0);
-
+	}
 	while (buff[i] != '\0')
 	{
 		if (buff[i] == '\n')
