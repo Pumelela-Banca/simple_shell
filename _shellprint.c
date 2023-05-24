@@ -25,6 +25,8 @@ char *_shellprint(void)
 		_putchar('\n');
 		exit(0);
 	}
+	if (buff[0] == '\n')
+		return (buff);
 	while (buff[i] != '\0')
 	{
 		if (buff[i] == '\n')

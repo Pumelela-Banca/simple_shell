@@ -16,6 +16,11 @@ void terminal(char *argv[])
 
 	do {
 		buff = _shellprint();
+		if (buff[0] == '\n')
+		{
+			free(buff);
+			continue;
+		}
 		cmds = tokenise(buff);
 		count++;
 		if (_strcmp(cmds[0], "exit") == 0)
