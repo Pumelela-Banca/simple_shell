@@ -16,7 +16,7 @@ void _exit_(char *cmds[])
 	}
 	else
 	{
-		i = atoi(cmds[1]);
+		i = _atoi(cmds[1]);
 		_free(cmds);
 		_free(evar_);
 		exit(i);

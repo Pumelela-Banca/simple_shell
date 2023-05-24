@@ -30,6 +30,7 @@ typedef struct environvar
 }
 _var;
 
+int _atoi(char *s);
 char *getpath(char *cmd);
 void execfile(char *cmds[]);
 char *_strdup(const char *s1);
