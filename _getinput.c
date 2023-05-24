@@ -40,9 +40,9 @@ char *getpath(char *cmd)
 		{
 			free(buff);
 			token = strtok(NULL, ":");
-		} while (token != NULL);
-		free(buff);
-		free(path);
-		return (NULL);
-}
+		}
+	} while (token != NULL);
+	free(buff);
+	free(path);
+	return (NULL);
 }
