@@ -11,11 +11,13 @@ char *_shellprint(void)
 	int z;
 	char *buff = NULL;
 	size_t n = 1024, i = 0;
+	char *tmp = NULL;
 
 	buff = malloc(n * sizeof(char));
 	if (buff == NULL)
 	{
 		perror("Error: can't allocate memory");
+		_free(evar_);
 		exit(1);
 	}
 	printstr("$ ");
@@ -27,16 +29,22 @@ char *_shellprint(void)
 		_free(evar_);
 		exit(0);
 	}
-	if (buff[0] == '\n')
-		return (buff);
-	while (buff[i] != '\0')
+	else
 	{
-		if (buff[i] == '\n')
+		tmp = removespace(buff);
+		free(buff);
+		buff = tmp;	
+		if (buff[0] == '\n')
+			return (buff);
+		while (buff[i] != '\0')
 		{
-			buff[i] = '\0';
-			break;
+			if (buff[i] == '\n')
+			{
+				buff[i] = '\0';
+				break;
+			}
+			i++;
 		}
-		i++;
 	}
 	return (buff);
 }

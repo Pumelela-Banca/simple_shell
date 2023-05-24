@@ -65,5 +65,5 @@ void terminal(char *argv[]);
 char *readfile(char *filepath);
 void no_terminal(char **argv);
 char *get_input(void);
-
+char *removespace(char *s);
 #endif
