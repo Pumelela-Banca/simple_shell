@@ -12,7 +12,7 @@ void no_terminal(char **argv)
 {
 	char *buff = NULL, *path;
 	char **cmds = NULL;
-	int count = 1, *ptr = &count, i;
+	int count = 1, *ptr = &count, i, k;
 	ff_t built[] = {{"exit", _exit_}, {"clear", _clear}, {"cd", _cd},
 		{"env", _env}, {"setenv", _setenv}, {"unsetenv", _unsetenv}, {NULL, NULL}};
 
@@ -35,6 +35,8 @@ void no_terminal(char **argv)
 		}
 		i++;
 	}
+	if (k != 0)
+		k = 0;
 	else if (_strcmp(cmds[0], "which") == 0)
 	{
 		if (_which(cmds) == 1)
