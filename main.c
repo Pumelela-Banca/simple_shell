@@ -10,13 +10,15 @@
  * Return: always return 0
  */
 
+char **evar_; 
 int main(int argc, char *argv[], char *envp[])
 {
-
-	(void)argc;
+	evar_ = envtokenise(environ);
+	
+	(void)evar_;
 	(void)envp;
 	
-	evar_ = envtokenise(environ);
+	/*char evar_ = envtokenise(environ);*/
 
 	if (argc == 2 || (isatty(STDIN_FILENO) == 0))
 		no_terminal(argv);
