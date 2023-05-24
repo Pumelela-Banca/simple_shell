@@ -23,6 +23,8 @@ char *get_input(void)
 		exit(0);
 	}
 	else if (z == 1)
+	{
+		free(buff);
 		exit(0);
 
 	while (buff[i] != '\0')
