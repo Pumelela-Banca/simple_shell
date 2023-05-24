@@ -1,17 +1,17 @@
 # include "main.h"
 /**
- *  _env - exit
- *  @envp: *envp[]
- *  @cmds: *cmds[][]
+ *  _env - print environmental variable list
+ *  @cmds: *cmds[]
  */
-void _env(char *envp[], char *cmds[])
+
+void _env(char *cmds[])
 {
 	int i = 0;
 
-	while (envp[i] != NULL)
+	while (evar[i] != NULL)
 	{
-		printstr(envp[i]);
-		_putchar('\n');
+		printstr(evar[i]);
+		printstr("\n");
 		i++;
 	}
 	_free(cmds);

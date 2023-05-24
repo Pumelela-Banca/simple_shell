@@ -1,18 +1,24 @@
 # include "main.h"
 /**
  *  _env_var_print - exit
- *  @envp: *envp[]
  *  @cmds: *cmds[][]
  */
-void _env_var_print(char *envp[], char *cmds[])
+void _env_var_print(char *cmds[])
 {
+	int i = 1;
 	char *envvar = NULL;
+	char *tmp = NULL;
 
-	(void)envp;
-
-	envvar = cmds[1];
-	envvar++;
-	printstr(_getenv(envvar));
-	_putchar('\n');
+	while (cmds[i] != NULL)
+	{
+		envvar = cmds[i];
+		envvar++;
+		tmp = _getenv(envvar);
+		printstr(tmp);
+		printstr(" ");
+		free(tmp);
+		i++;
+	}
+	printstr("\n");
 	_free(cmds);
 }

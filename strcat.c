@@ -9,6 +9,7 @@ char *_strcat(char *s1, const char *s2)
 {
 	char *v1 = s1;
 	const char *v2 = s2;
+
 	while (*v1 != '\0')
 	{
 		v1++;

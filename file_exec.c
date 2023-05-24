@@ -2,19 +2,18 @@
 
 /**
  *  file_exec - exit
- *  @envp: *envp[]
  *  @cmds: *cmds[][]
  *  @argv: argv
  *  @count: count
  *  Return: int
  */
 
-int file_exec(char *envp[], char *cmds[], char *argv[], int *count)
+int file_exec(char *cmds[], char *argv[], int *count)
 {
 	char *real = NULL, *tmp = NULL;
 	pid_t pid;
 
-	real = getpath(cmds[0], envp);
+	real = getpath(cmds[0]);
 	if (real == NULL)
 	{
 		print_error(count, argv, cmds);
@@ -27,17 +26,20 @@ int file_exec(char *envp[], char *cmds[], char *argv[], int *count)
 	free(real);
 
 	pid = fork();
+
 	if (pid == -1)
 	{
 		perror("fork failed");
 		_free(cmds);
+		_free(evar);
 		exit(1);
 	}
 	else if (pid == 0)
 	{
-		execfile(cmds, envp);
+		execfile(cmds);
 		perror("execve failed");
 		_free(cmds);
+		_free(evar);
 		exit(1);
 	}
 	else
