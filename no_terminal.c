@@ -4,7 +4,6 @@
  * no_terminal - runs hsh code in a pipe situation
  *
  * @argv: commands
- * @envp: environment variables
  *
  * Return: void
  */
@@ -31,21 +30,13 @@ void no_terminal(char **argv)
 	else if (_strcmp(cmds[0], "cd") == 0)
 		_cd(cmds);
 	else if (_strcmp(cmds[0], "which") == 0)
-	{
-		if (_which(cmds) == 1)
-		{
-			_free(evar_);
-			exit(1);
-		}
-	}
+		_which(cmds);
 	else if (_strcmp(cmds[0], "env") == 0)
 		_env(cmds);
 	else if (_strcmp(cmds[0], "setenv") == 0)
-            _setenv(cmds);
+		_setenv(cmds);
 	else if (_strcmp(cmds[0], "unsetenv") == 0)
 		_unsetenv(cmds);
-	else if ((_strcmp(cmds[0], "echo") == 0) && (cmds[1][0] == '$'))
-		_env_var_print(cmds);
 	else
 	{
 		if (file_exec(cmds, argv, ptr) == 1)

@@ -45,8 +45,6 @@ char **tokenise(char *buff);
 void _setenv(char *cmds[]);
 char *_getenv(char *name);
 void _exit_(char *cmds[]);
-void free_list(_var *head);
-char *look_in_env(_var *head, char *name);
 void _clear(char *cmds[]);
 void _exit_(char *cmds[]);
 void _cd(char *cmds[]);
