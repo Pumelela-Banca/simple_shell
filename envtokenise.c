@@ -6,26 +6,26 @@
  * Return: list of directories
  */
 
-char **envtokenise(void)
+char **envtokenise(char **env_init)
 {
 	char **new = NULL;
 	int j = 0, k = 0;
 
-	while (environ[j] != NULL)
+	while (env_init[j] != NULL)
 	{
 		j++;
 	}
 	j++;
 	new = malloc(j * sizeof(char *));
-	if (new == NULL)
+	if(new == NULL)
 	{
 		perror("Error");
 		return (NULL);
 	}
 	j = 0;
-	while (environ[j] != NULL)
+	while (env_init[j] != NULL)
 	{
-		new[j] = _strdup(environ[j]);
+		new[j] = _strdup(env_init[j]);
 		if (new[j] == NULL)
 		{
 			for (k = 0; k < j; k++)

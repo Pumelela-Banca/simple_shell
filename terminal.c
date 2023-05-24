@@ -8,7 +8,7 @@
  *
  * Return: void
  */
-void terminal(char *argv[], char *envp[])
+void terminal(char *argv[])
 {
 	int j = 0, count = 0, *ptr = &count;
 	char **cmds = NULL;

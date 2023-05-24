@@ -9,7 +9,7 @@
  * Return: void
  */
 
-void no_terminal(char **argv, char **envp)
+void no_terminal(char **argv)
 {
 	char *buff = NULL;
 	char **cmds = NULL, *path;
