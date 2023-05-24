@@ -20,10 +20,13 @@ char *get_input(void)
 	z = getline(&buff, &n, stdin);
 	if (z == -1)
 	{
+		free(buff);
+		free(evar_);
 		exit(0);
 	}
 	else if (buff[0] == '\n')
 	{
+		free(evar_);
 		free(buff);
 		exit(0);
 	}
