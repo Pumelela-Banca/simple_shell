@@ -22,6 +22,7 @@ char *_shellprint(void)
 	z = getline(&buff, &n, stdin);
 	if (z == -1)
 	{
+		free(buff);
 		_putchar('\n');
 		exit(0);
 	}
