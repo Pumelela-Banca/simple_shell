@@ -31,7 +31,7 @@ int file_exec(char *cmds[], char *argv[], int *count)
 	{
 		perror("fork failed");
 		_free(cmds);
-		_free(evar);
+		_free(evar_);
 		exit(1);
 	}
 	else if (pid == 0)
@@ -39,7 +39,7 @@ int file_exec(char *cmds[], char *argv[], int *count)
 		execfile(cmds);
 		perror("execve failed");
 		_free(cmds);
-		_free(evar);
+		_free(evar_);
 		exit(1);
 	}
 	else

@@ -9,5 +9,5 @@
  */
 void execfile(char *cmds[])
 {
-	execve(cmds[0], cmds, evar);
+	execve(cmds[0], cmds, evar_);
 }

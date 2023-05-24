@@ -15,7 +15,7 @@ int main(int argc, char *argv[], char *envp[])
 
 	(void)argc;
 	(void)envp;
-
+	
 	evar_ = envtokenise(environ);
 
 	if (argc == 2 || (isatty(STDIN_FILENO) == 0))
