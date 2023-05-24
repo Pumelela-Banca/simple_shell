@@ -11,10 +11,8 @@
 
 char *checkdir(char *name, char *file)
 {
-	char *path = NULL;
-	char buff[1024] = {0};
+	char *path = NULL, buff[1024] = {0};
 	DIR *dir = NULL;
-
 	struct dirent *entity;
 
 	if (access(file, X_OK) == 0)

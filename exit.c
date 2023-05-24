@@ -2,13 +2,23 @@
 
 /**
  *  _exit_ - exit
- *  @envp: *envp[]
  *  @cmds: *cmds[][]
  */
-void _exit_(char *envp[], char *cmds[])
+void _exit_(char *cmds[])
 {
-	(void)envp;
+	int i;
 
-	_free(cmds);
-	exit(0);
+	if (cmds[1] == NULL)
+	{
+		_free(cmds);
+		_free(evar);
+		exit(0);
+	}
+	else
+	{
+		i = atoi(cmds[1]);
+		_free(cmds);
+		_free(evar);
+		exit(i);
+	}
 }

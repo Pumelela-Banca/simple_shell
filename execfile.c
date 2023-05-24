@@ -4,12 +4,10 @@
  * execfile - calls execve function
  *
  * @cmds: commands
- * @envp: envoroment ariables
  *
  * Return: void
  */
-
-void execfile(char *cmds[], char *envp[])
+void execfile(char *cmds[])
 {
-	execve(cmds[0], cmds, envp);
+	execve(cmds[0], cmds, evar);
 }
