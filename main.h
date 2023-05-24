@@ -12,7 +12,7 @@
 # include <dirent.h>
 
 extern char **environ;
-char **evar  = NULL;
+char **evar_  = NULL;
 
 typedef struct environvar
 {
