@@ -14,14 +14,6 @@
 extern char **environ;
 extern char **evar_;
 
-typedef struct environvar
-{
-        char *name;
-        char *value;
-
-        struct environvar *next;
-}
-_var;
 
 char *getpath(char *cmd);
 void execfile(char *cmds[]);
@@ -30,7 +22,7 @@ void _free(char *cmds[]);
 int _strcmp(const char *str1, const char *str2);
 char *_strdup(const char *s1);
 char *_strcat(char *s1, const char *s2);
-char *_strcpy(char * dst, const char * src);
+char *_strcpy(char *dst, const char *src);
 size_t _strlen(const char *s);
 char *checkdir(char *name, char *file);
 int printstr(char *s);
@@ -40,8 +32,6 @@ char **tokenise(char *buff);
 void _setenv(char *cmds[]);
 char *_getenv(char *name);
 void _exit_(char *cmds[]);
-void free_list(_var *head);
-char *look_in_env(_var *head, char *name);
 void _clear(char *cmds[]);
 void _exit_(char *cmds[]);
 void _cd(char *cmds[]);
@@ -59,11 +49,12 @@ int printstr(char *s);
 char **_envset(char *cmds[]);
 void _env_modify(char *cmds[]);
 void _setenv(char *cmds[]);
-char ** _env_delete(char *cmds[]);
+char **_env_delete(char *cmds[]);
 void _unsetenv(char *cmds[]);
 void terminal(char *argv[]);
 char *readfile(char *filepath);
 void no_terminal(char **argv);
 char *get_input(void);
+char *removespace(char *s);
 
 #endif

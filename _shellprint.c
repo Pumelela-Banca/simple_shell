@@ -9,7 +9,7 @@
 char *_shellprint(void)
 {
 	int z;
-	char *buff = NULL;
+	char *buff = NULL, *tmp = NULL;
 	size_t n = 1024, i = 0;
 
 	buff = malloc(n * sizeof(char));
@@ -26,16 +26,23 @@ char *_shellprint(void)
 		_putchar('\n');
 		exit(0);
 	}
-	if (buff[0] == '\n')
-		return (buff);
-	while (buff[i] != '\0')
+	else
 	{
-		if (buff[i] == '\n')
+		tmp = removespace(buff);
+		free(buff);
+		buff = tmp;
+
+		if (buff[0] == '\n')
+			return (buff);
+		while (buff[i] != '\0')
 		{
-			buff[i] = '\0';
-			break;
+			if (buff[i] == '\n')
+			{
+				buff[i] = '\0';
+				break;
+			}
+			i++;
 		}
-		i++;
+		return (buff);
 	}
-	return (buff);
 }
