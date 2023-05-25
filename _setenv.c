@@ -14,16 +14,6 @@ void _setenv(char *cmds[])
 	char **tmp = NULL;
 	char *envr = NULL;
 
-	while (cmds[i] != NULL)
-	{
-		i++;
-	}
-	if (i != 3)
-	{
-		_free(cmds);
-		perror("exess arguments on setenv");
-		return;
-	}
 	envr = _getenv(cmds[1]);
 	if (envr == NULL)
 	{

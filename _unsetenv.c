@@ -11,17 +11,6 @@ void _unsetenv(char *cmds[])
 	char *envr = _getenv(cmds[1]);
 	char **tmp = NULL;
 
-	while (cmds[i] != NULL)
-	{
-		i++;
-	}
-	if (i != 3)
-	{
-		_free(cmds);
-		perror("exess arguments on setenv");
-		return;
-	}
-
 	if (envr == NULL)
 	{
 		perror("variable does not exist");
