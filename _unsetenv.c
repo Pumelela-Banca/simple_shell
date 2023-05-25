@@ -7,7 +7,7 @@
 
 void _unsetenv(char *cmds[])
 {
-	int i = 0;
+
 	char *envr = _getenv(cmds[1]);
 	char **tmp = NULL;
 

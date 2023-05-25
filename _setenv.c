@@ -10,7 +10,7 @@
 
 void _setenv(char *cmds[])
 {
-	int i = 0;
+
 	char **tmp = NULL;
 	char *envr = NULL;
 
