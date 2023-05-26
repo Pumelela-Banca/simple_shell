@@ -12,6 +12,7 @@ void _exit_(char *cmds[])
 	{
 		_free(cmds);
 		_free(evar_);
+		_free(lines);
 		exit(0);
 	}
 	else
@@ -19,6 +20,7 @@ void _exit_(char *cmds[])
 		i = _atoi(cmds[1]);
 		_free(cmds);
 		_free(evar_);
+		_free(lines);
 		exit(i);
 	}
 }

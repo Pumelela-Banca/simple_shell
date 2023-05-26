@@ -30,6 +30,6 @@ char **tokenise(char *buff)
 	} while (token != NULL);
 
 	cmds[i] = NULL;
-	free(buff);
+	/*free(buff);*/
 	return (cmds);
 }

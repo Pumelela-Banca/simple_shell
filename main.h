@@ -13,7 +13,7 @@
 
 extern char **environ;
 extern char **evar_;
-
+extern char **lines;
 /**
  * struct built_in_ - structure
  * @name: name of command
@@ -69,4 +69,5 @@ char *readfile(char *filepath);
 void no_terminal(char **argv);
 char **get_input(void);
 char *removespace(char *s);
+int filter(char *line);
 #endif

@@ -33,7 +33,7 @@ int filter(char *line)
 
 void no_terminal(char **argv)
 {
-	char **lines = NULL, *line = NULL, **cmds = NULL;
+	char *line = NULL, **cmds = NULL;
 	int count = 1, *ptr = &count, z = 0;
 
 	lines = get_input();
@@ -64,12 +64,12 @@ void no_terminal(char **argv)
 				while (lines[z++] != NULL)
 					free(lines[z]);
 				_free(evar_);
-				free(line);
+				_free(lines);
 				exit(127);
 			}
 		z++;
 	} while (lines[z] != NULL);
 	_free(evar_);
-	free(lines);
+	_free(lines);
 	exit(0);
 }

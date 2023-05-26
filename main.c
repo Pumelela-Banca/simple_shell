@@ -11,7 +11,7 @@
  */
 
 char **evar_;
-
+char **lines;
 int main(int argc, char *argv[], char *envp[])
 {
 	evar_ = envtokenise(environ);
