@@ -60,12 +60,16 @@ void no_terminal(char **argv)
 			_unsetenv(cmds);
 		else
 			if (file_exec(cmds, argv, ptr) == 1)
-				p++;
+			{
+				while (lines[z++] != NULL)
+					free(line[z]);
+				_free(evar_);
+				free(line);
+				exit(127);
+			}
 		z++;
 	} while (lines[z] != NULL);
 	_free(evar_);
 	free(lines);
-	if (p != 0)
-		exit(127);
 	exit(0);
 }
