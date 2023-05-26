@@ -31,6 +31,7 @@ void _cd_home(char *cmds[])
 		_strcat(buff, tmp);
 		free(tmp);
 		new = tokenise(buff);
+		free(buff);
 		_setenv(new);
 
 		buff = malloc(1024 * sizeof(char));
@@ -38,6 +39,7 @@ void _cd_home(char *cmds[])
 		_strcat(buff, "OLDPWD ");
 		_strcat(buff, tmp1);
 		new = tokenise(buff);
+		free(buff);
 		_setenv(new);
 		free(tmp1);
 	}
@@ -60,14 +62,13 @@ void _cd_dir(char *cmds[])
 		printf("error");
 		fflush(stdout);
 		perror("");
-		_free(cmds);
+		free(tmp);
 		return;
 	}
 	if (getcwd(cwd, 1024) == NULL)
 	{
 		perror("getcwd() error");
 		free(buff);
-		_free(cmds);
 		return;
 	}
 	buff = malloc(1024 * sizeof(char));
@@ -75,6 +76,7 @@ void _cd_dir(char *cmds[])
 	_strcat(buff, "PWD ");
 	_strcat(buff, cwd);
 	new = tokenise(buff);
+	free(buff);
 	_setenv(new);
 
 	buff = malloc(1024 * sizeof(char));
@@ -82,6 +84,7 @@ void _cd_dir(char *cmds[])
 	_strcat(buff, "OLDPWD ");
 	_strcat(buff, tmp);
 	new = tokenise(buff);
+	free(buff);
 	_setenv(new);
 	free(tmp);
 }
@@ -95,6 +98,8 @@ void _cd_prev(char *cmds[])
 	char *tmp = NULL, *old = NULL;
 	char cwd[1024];
 
+	(void)cmds;
+
 	tmp = _getenv("PWD");
 	old = _getenv("OLDPWD");
 
@@ -103,7 +108,6 @@ void _cd_prev(char *cmds[])
 		printf("error");
 		fflush(stdout);
 		perror("");
-		_free(cmds);
 		free(old);
 		return;
 	}
@@ -112,7 +116,6 @@ void _cd_prev(char *cmds[])
 	{
 		perror("getcwd() error");
 		free(buff);
-		_free(cmds);
 		return;
 	}
 	buff = malloc(1024 * sizeof(char));
@@ -120,6 +123,7 @@ void _cd_prev(char *cmds[])
 	_strcat(buff, "PWD ");
 	_strcat(buff, cwd);
 	new = tokenise(buff);
+	free(buff);
 	_setenv(new);
 
 	buff = malloc(1024 * sizeof(char));
@@ -127,6 +131,7 @@ void _cd_prev(char *cmds[])
 	_strcat(buff, "OLDPWD ");
 	_strcat(buff, tmp);
 	new = tokenise(buff);
+	free(buff);
 	_setenv(new);
 	free(tmp);
 }
