@@ -30,7 +30,6 @@ char **lines_split(char *buff)
 	} while (token != NULL);
 
 	cmds[i] = NULL;
-	free(buff);
 	return (cmds);
 }
 /**
@@ -50,6 +49,7 @@ void terminal(char *argv[])
 	do {
 		buff = _shellprint();
 		lines = lines_split(buff);
+		free(buff);
 		count++;
 		z = 0;
 		while (lines[z] != NULL)
@@ -73,8 +73,6 @@ void terminal(char *argv[])
 			} while (built[i].name != NULL);
 			if (k != 0)
 				k = 0;
-			else if (_strcmp(cmds[0], "which") == 0)
-				_which(cmds);
 			else
 				file_exec(cmds, argv, ptr);
 			z++;

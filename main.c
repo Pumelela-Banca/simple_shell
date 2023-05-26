@@ -12,6 +12,7 @@
 
 char **evar_;
 char **lines;
+char **commands;
 int main(int argc, char *argv[], char *envp[])
 {
 	evar_ = envtokenise(environ);

@@ -14,6 +14,7 @@
 extern char **environ;
 extern char **evar_;
 extern char **lines;
+extern char **commands;
 /**
  * struct built_in_ - structure
  * @name: name of command
@@ -27,6 +28,8 @@ typedef struct built_in_
 	void (*fun)(char *cmds[]);
 } ff_t;
 
+void _free2(void);
+char **lines_split(char *buff);
 int _atoi(char *s);
 char *getpath(char *cmd);
 void execfile(char *cmds[]);

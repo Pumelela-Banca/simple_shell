@@ -24,6 +24,15 @@ int filter(char *line)
 	return (0);
 }
 /**
+ * _free2 - function to free 3 extern chars
+ */
+void _free2(void)
+{
+	_free(evar_);
+	_free(lines);
+	_free(commands);
+}
+/**
  * no_terminal - runs hsh code in a pipe situation
  *
  * @argv: commands
@@ -34,7 +43,7 @@ int filter(char *line)
 void no_terminal(char **argv)
 {
 	char *line = NULL, **cmds = NULL;
-	int count = 1, *ptr = &count, z = 0;
+	int count = 1, *ptr = &count, z = 0, k = 0;
 
 	lines = get_input();
 	do {
@@ -45,31 +54,32 @@ void no_terminal(char **argv)
 			free(line);
 			continue;
 		}
-		cmds = tokenise(lines[z]);
-		if (_strcmp(cmds[0], "exit") == 0)
-			_exit_(cmds);
-		else if (_strcmp(cmds[0], "cd") == 0)
-			_cd(cmds);
-		else if (_strcmp(cmds[0], "which") == 0)
-			_which(cmds);
-		else if (_strcmp(cmds[0], "env") == 0)
-			_env(cmds);
-		else if (_strcmp(cmds[0], "setenv") == 0)
-			_setenv(cmds);
-		else if (_strcmp(cmds[0], "unsetenv") == 0)
-			_unsetenv(cmds);
-		else
-			if (file_exec(cmds, argv, ptr) == 1)
-			{
-				while (lines[z++] != NULL)
-					free(lines[z]);
-				_free(evar_);
-				_free(lines);
-				exit(127);
-			}
+		commands = lines_split(line);
+		k = 0;
+		do {
+			if (commands[k] == NULL)
+				break;
+			cmds = tokenise(commands[k]);
+			if (_strcmp(cmds[0], "exit") == 0)
+				_exit_(cmds);
+			else if (_strcmp(cmds[0], "cd") == 0)
+				_cd(cmds);
+			else if (_strcmp(cmds[0], "env") == 0)
+				_env(cmds);
+			else if (_strcmp(cmds[0], "setenv") == 0)
+				_setenv(cmds);
+			else if (_strcmp(cmds[0], "unsetenv") == 0)
+				_unsetenv(cmds);
+			else
+				if (file_exec(cmds, argv, ptr) == 1)
+				{
+					_free2();
+					exit(127);
+				}
+
+		} while (commands[k++] != NULL);
 		z++;
 	} while (lines[z] != NULL);
-	_free(evar_);
-	_free(lines);
+	_free2();
 	exit(0);
 }
