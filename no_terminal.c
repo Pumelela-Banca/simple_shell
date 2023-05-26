@@ -56,6 +56,7 @@ void no_terminal(char **argv)
 		k = 0;
 		while (commands[k] != NULL)
 		{
+			rm_comments(commands[k]);
 			cmds = tokenise(commands[k]);
 			if (_strcmp(cmds[0], "exit") == 0)
 				_exit_(cmds);

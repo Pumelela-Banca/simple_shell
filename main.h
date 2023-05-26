@@ -73,4 +73,5 @@ void no_terminal(char **argv);
 char **get_input(void);
 char *removespace(char *s);
 int filter(char *line);
+void rm_comments(char *str);
 #endif
