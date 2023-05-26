@@ -21,47 +21,46 @@ char *removespace(char *s)
  * get_input - function to get input (non- interactive)
  * Return: buffer
  */
-
-char *get_input(void)
+char **get_input(void)
 {
-	int z;
-	char *buff = NULL, *tmp = NULL;
-	size_t n = 1024, i = 0;
+	int z = 0, k = 0, j = 0;
+	char *buff = NULL, *tmp = NULL, **lines = NULL;
+	size_t n = 1024;
 
-	buff = malloc(n * sizeof(char));
-	if (buff == NULL)
+	lines = malloc(20 * sizeof(char *));
+	if (lines == NULL)
 	{
 		perror("Error: can't allocate memory");
 		_free(evar_);
 		exit(1);
 	}
-	z = getline(&buff, &n, stdin);
-	if (z == -1)
-	{
-		free(buff);
-		_free(evar_);
-		exit(0);
-	}
-	else
-	{
+	do {
+		buff = malloc(n * sizeof(char));
+		if (buff == NULL)
+		{
+			perror("Error: can't allocate memory");
+			_free(evar_);
+			while (k < j)
+			{
+				free(lines[j]);
+				j++;
+			}
+			free(lines);
+			exit(1);
+		}
+		z = getline(&buff, &n, stdin);
+		if (z == -1)
+		{
+			free(buff);
+			break;
+		}
 		tmp = removespace(buff);
 		free(buff);
 		buff = tmp;
-		if (buff[0] == '\n')
-		{
-			_free(evar_);
-			free(buff);
-			exit(0);
-		}
-		while (buff[i] != '\0')
-		{
-			if (buff[i] == '\n')
-			{
-				buff[i] = '\0';
-				break;
-			}
-			i++;
-		}
-	}
-	return (buff);
+		lines[j] = _strdup(buff);
+		free(buff);
+		j++;
+	} while (z != -1);
+	lines[j] = NULL;
+	return (lines);
 }
