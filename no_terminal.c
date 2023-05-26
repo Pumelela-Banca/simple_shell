@@ -34,7 +34,7 @@ int filter(char *line)
 void no_terminal(char **argv)
 {
 	char **lines = NULL, *line = NULL, **cmds = NULL;
-	int count = 1, *ptr = &count, z = 0, p = 0;
+	int count = 1, *ptr = &count, z = 0;
 
 	lines = get_input();
 	do {
@@ -62,7 +62,7 @@ void no_terminal(char **argv)
 			if (file_exec(cmds, argv, ptr) == 1)
 			{
 				while (lines[z++] != NULL)
-					free(line[z]);
+					free(lines[z]);
 				_free(evar_);
 				free(line);
 				exit(127);
