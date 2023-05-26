@@ -30,7 +30,6 @@ void _free2(void)
 {
 	_free(evar_);
 	_free(lines);
-	_free(commands);
 }
 /**
  * no_terminal - runs hsh code in a pipe situation
@@ -51,14 +50,12 @@ void no_terminal(char **argv)
 		if (filter(line) == 1)
 		{
 			z++;
-			free(line);
 			continue;
 		}
 		commands = lines_split(line);
 		k = 0;
-		do {
-			if (commands[k] == NULL)
-				break;
+		while (commands[k] != NULL)
+		{
 			cmds = tokenise(commands[k]);
 			if (_strcmp(cmds[0], "exit") == 0)
 				_exit_(cmds);
@@ -74,10 +71,12 @@ void no_terminal(char **argv)
 				if (file_exec(cmds, argv, ptr) == 1)
 				{
 					_free2();
+					_free(commands);
 					exit(127);
 				}
-
-		} while (commands[k++] != NULL);
+			k++;
+		}
+		_free(commands);
 		z++;
 	} while (lines[z] != NULL);
 	_free2();
