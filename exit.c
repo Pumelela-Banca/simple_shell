@@ -11,6 +11,7 @@ void _exit_(char *cmds[])
 	if (cmds[1] == NULL)
 	{
 		_free(cmds);
+		_free(commands);
 		_free2();
 		exit(0);
 	}
@@ -18,6 +19,7 @@ void _exit_(char *cmds[])
 	{
 		i = _atoi(cmds[1]);
 		_free(cmds);
+		 _free(commands);
 		_free2();
 		exit(i);
 	}
